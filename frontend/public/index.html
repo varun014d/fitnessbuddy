@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness Buddy — AI Health Coach</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+</head>
+<body>
+  <!-- ── Sidebar ──────────────────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">💪</span>
+        <span class="logo-text">Fitness Buddy</span>
+      </div>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">✕</button>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Quick Topics</h3>
+      <button class="quick-btn" data-msg="Give me a full-body 20-minute home workout routine.">🏃 Home Workout</button>
+      <button class="quick-btn" data-msg="Suggest a healthy meal plan for weight loss for the week.">🥗 Meal Plan</button>
+      <button class="quick-btn" data-msg="Give me a motivational tip to stay consistent with fitness.">💡 Daily Motivation</button>
+      <button class="quick-btn" data-msg="What are the best HIIT exercises I can do at home?">⚡ HIIT Training</button>
+      <button class="quick-btn" data-msg="Create a beginner strength training plan for me.">🏋️ Strength Training</button>
+      <button class="quick-btn" data-msg="What should I eat before and after a workout?">🍌 Pre/Post Workout</button>
+      <button class="quick-btn" data-msg="How do I build a consistent daily fitness habit?">📅 Build Habits</button>
+      <button class="quick-btn" data-msg="How much water should I drink daily during exercise?">💧 Hydration Tips</button>
+      <button class="quick-btn" data-msg="Suggest a 10-minute morning yoga routine for beginners.">🧘 Yoga Routine</button>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Your Stats</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-num" id="statMessages">0</span>
+          <span class="stat-label">Messages</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="statSessions">1</span>
+          <span class="stat-label">Sessions</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <p>Powered by <strong>IBM Granite</strong></p>
+      <p>IBM Watsonx.ai</p>
+    </div>
+  </aside>
+
+  <!-- ── Main App ─────────────────────────────────────────── -->
+  <div class="app-wrapper">
+    <!-- Top Nav -->
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <div class="topbar-brand">
+        <span class="brand-icon">💪</span>
+        <span class="brand-name">Fitness Buddy</span>
+        <span class="brand-badge">AI Coach</span>
+      </div>
+      <button class="clear-btn" id="clearBtn" title="Clear conversation">🗑️ Clear</button>
+    </header>
+
+    <!-- Chat Window -->
+    <main class="chat-main">
+      <div class="chat-window" id="chatWindow">
+        <!-- Welcome Card -->
+        <div class="welcome-card" id="welcomeCard">
+          <div class="welcome-icon">🏋️</div>
+          <h1>Hey there! I'm Fitness Buddy</h1>
+          <p>Your personal AI-powered health &amp; fitness coach, available 24/7. Ask me anything about workouts, nutrition, or motivation!</p>
+          <div class="welcome-chips">
+            <button class="chip" data-msg="What home workouts can I do with no equipment?">🏠 Home Workouts</button>
+            <button class="chip" data-msg="Give me a healthy meal plan for this week.">🥗 Meal Ideas</button>
+            <button class="chip" data-msg="I need motivation to start working out.">💪 Motivation</button>
+            <button class="chip" data-msg="Help me create a beginner fitness plan.">📋 Fitness Plan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator hidden" id="typingIndicator">
+        <div class="typing-avatar">🤖</div>
+        <div class="typing-bubble">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Input Bar -->
+    <footer class="input-bar">
+      <div class="input-wrapper">
+        <textarea
+          id="userInput"
+          class="user-textarea"
+          placeholder="Ask about workouts, nutrition, motivation..."
+          rows="1"
+          maxlength="2000"
+          autofocus
+        ></textarea>
+        <button class="send-btn" id="sendBtn" aria-label="Send message">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint">Powered by IBM Granite · IBM Watsonx.ai · Not a medical service</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
